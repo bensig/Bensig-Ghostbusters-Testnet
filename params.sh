@@ -9,8 +9,13 @@
 ## Jae Chung, HKEOS
 ##########################################
 
+<<<<<<< HEAD
 TAG="DAWN-2018-05-30";
 EOS_TARGET_VERSION="3655280044";
+=======
+TAG="mainnet-1.0.2.1";
+EOS_TARGET_VERSION="759439493";
+>>>>>>> e8afa966359ff5aa6893c308f7072fb1ba8eeb24
 TESTNET="ghostbusters";
 
 ##### REQUIRED PARAMETERS TO BE MODIFIED ######

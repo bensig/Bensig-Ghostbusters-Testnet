@@ -1,4 +1,47 @@
+<<<<<<< HEAD
 # Ghostbusters Testnet Instructions
+=======
+# EOS Core instructions
+
+[中文版本](https://github.com/HKEOS/Ghostbusters-Testnet/blob/master/README_CN.md)
+
+[한국어](https://github.com/HKEOS/Ghostbusters-Testnet/blob/master/README_KO.md)
+
+- New instructions for setting up [prometheus](https://github.com/HKEOS/Ghostbusters-Testnet/blob/master/prometheus.md) (Patroneos + HAProxy), [regproducer](https://github.com/HKEOS/Ghostbusters-Testnet/blob/master/regproducer.md) and [trusted peer](https://github.com/HKEOS/Ghostbusters-Testnet/blob/master/trusted-peers.md) scripts are now available.
+- As of June 1st, 2018, we will be using the EOS-mainnet repository. EOS.IO should be built using this repository.
+
+```console
+# Clean install
+git clone https://github.com/EOS-Mainnet/eos.git
+cd eos
+git checkout mainnet-1.0.2.1
+git submodule update --init --recursive
+./eosio_build.sh
+cd build
+sudo make install
+```
+
+If you are updating from the EOS-mainnet repo:
+```console
+git pull
+git checkout <tag>
+git submodule update --init --recursive
+./eosio_build.sh
+cd build
+sudo make install
+```
+
+- Time sync first
+
+```console
+sudo timedatectl set-ntp no
+# Check if default timesyncd is off
+timedatectl
+sudo apt-get install ntp
+# Check if ntp is fine
+sudo ntpq -p
+```
+>>>>>>> e8afa966359ff5aa6893c308f7072fb1ba8eeb24
 
 ### 0. Install Keybase
 
@@ -225,13 +268,18 @@ sudo apt-get install -y nodejs
  ```console
  sudo npm install -g ajv-cli
  ajv validate -s schema.json -d bp_info.json
+<<<<<<< HEAD
 ```
+=======
+ ```
+>>>>>>> e8afa966359ff5aa6893c308f7072fb1ba8eeb24
 
 ### 6. Check scripts
 
 `cd` into your Ghostbusters testnet folder, which was created from the install script.
 Try `cat config.ini`, and `cat cleos.sh` to check that all the information is correct.
 
+<<<<<<< HEAD
 ### 7. Setup Autolaunch
 
 ```console
@@ -261,6 +309,14 @@ If `autolaunch.sh` doesn't start your node correctly, run the following command:
 If you were selected as the bios node, please follow instructions [here](https://github.com/hkeos/Ghostbusters-Testnet/blob/master/bios-node/bios-instructions.md)
 
 ### 9. Resync
+=======
+Start your node when ready:
+```console
+./start.sh --delete-all-blocks --genesis-json /path/to/genesis.json
+```
+
+### 7. Resync
+>>>>>>> e8afa966359ff5aa6893c308f7072fb1ba8eeb24
 
 If at any point you need to restart your node:
 ```console
@@ -268,7 +324,11 @@ If at any point you need to restart your node:
 tail -F stderr.txt
 
 # Hard resync
+<<<<<<< HEAD
 ./start.sh --delete-all-blocks --hard-replay-blockchain
+=======
+./start.sh --delete-all-blocks --genesis-json /path/to/genesis.json
+>>>>>>> e8afa966359ff5aa6893c308f7072fb1ba8eeb24
 tail -F stderr.txt
 ```
 You can also update your peers and restart at the same time:
